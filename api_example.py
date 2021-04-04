@@ -20,9 +20,7 @@ def detect_text(path):
     texts = response.text_annotations
     print('Texts:')
 
-    for text in texts:
-        print('\n"{}"'.format(text.description))
-        exit()
+    print(texts[0].description)
 
     if response.error.message:
         raise Exception(
