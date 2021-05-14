@@ -7,7 +7,7 @@ from time import sleep
 from api import Cream
 import os
 #Enter API_KEY from file 'Keys'
-API_KEY = '1886309037:AAE0jcZvgf1fuXJbokWmnyT40HFUElBzfzw'
+API_KEY = ''
 bot = telebot.TeleBot(API_KEY)
 
 markup_for_yes_no = types.InlineKeyboardMarkup()
