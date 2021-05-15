@@ -67,6 +67,8 @@ def preprocess(path, row_range, column_range, drop_strings):
         row_range ([tuple]): [range of rows to retrieve from the dataset].
         column_range ([tuple]): [range of columns to retrieve from the dataset].
     """
+    def modify_name(name):
+        return name.strip()[:name.find(' ')]
 
     dataframe = pd.read_excel(path)
 
@@ -93,6 +95,8 @@ def preprocess(path, row_range, column_range, drop_strings):
     #Drop the invalid and unneeded rows using given identifiers.
     for drop_string in drop_strings:
         dataframe.drop(dataframe[dataframe['name'] == drop_string].index, inplace = True)
+    
+    dataframe['name'] = dataframe['name'].apply(modify_name)
 
     #Write the datafram into a file.
     dataframe.to_excel(path[path.rfind('/'):]+'_new.xlsx')

@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "simpletextrecognition-309711",
+  "private_key_id": "6d6ae1b47dff7ec42684a777127f6e5813de8a6a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC/Y9bX5KjgkIes\nlnu3xPrAnTqp2vYIeJBwzz0SpLC+pc+ikNXxI6vUugFXeEes3P2I0AnioowDE3ns\nVLbCpMnWv/n0tBRg1GXSHoTV83lN+0ixvBGoWTqfIHSamczCPUx3PyOM4CGLbWfN\nIIQ5iajx4IkzlOesA1fm//uAv54XIsWufbwxklM5DOmWVYNF7eNyF526Cz4w+Smu\nMxdq240g7a7qdi9leDvOLy4fpiafLIdXOCBoGJv6W9w+0CD6sTEcBhqm0T7qz2uN\nCw1zk/aEmmLH/B9W96vDaQAsOlYdV1XYQnPoHytazJXnNduGtjLX4KmvUo4g1WwP\n0hCmkq89AgMBAAECggEAGJK6jnyq3C5iZRvrJZSyd1GYqx9UcJD+RqWtGzwu/0Nt\nzdsXxP7F/KmnK3JjjYPQP6UqZ8FkBa8V++yCjKo4ygxbDPqkFSygKCLH/mpk3EjT\ntBJIGBvgxXaW0hTGL/hL3ZGrQFa0p+Czr6gpofOVT/z60LchKbpCKoQaaBTyONkC\nlJ+7cY5fTyaSZ1echvcLYValrUWyEIZAE4RU+o+H8ViEBKpmUDdon8KK2PR1+ezO\nDlYzSXboECpsotSzCOdMxgRDC8Gv4je6mDjFEBQ+Cnim4OgbtH2GkNzgi/aRt2lT\nqmLACWI7SfwRxLmVplGS2iVeENDysQDSeJHR0U04wQKBgQDux6cUcK5yPgUv3llh\nlIfLMsz9C5g/W4D2XlMYEJ1F0zcAl+dr3gTX4sRIIpeFYL5uTwrqCu+JwSQ84DL0\nzjfSZpzboz/SVDdaD2k0OrwsKKLFRuNwepxM6Lr4nmg2T4CEPMFP01BAMkKJhESm\n9eTWVZ00Rjs/3IRisQGLtD25IQKBgQDNMUaU+SoSAfSGxuB3Gufq0CNGME0jXbJ5\nUu9z7JDNeciW5AftPIaTyT8pPXhLGkscc0Z9nHN0y0Q5VgY24TYBrbpiWbiHj85d\ndc1gSuPdcY/rtOC+6ACN3LhM3S1rkyaKqw2zX2oHR0lj79a1yw6hI1HbmRljt4+e\nbzghbVVmnQKBgEjbmKqO+1uWewSxJrq0lH63AH9Rs2HZrM7/1wDnyOVOXmEK+K0c\nMIQjCFsuWudyroiAC8eAELkKuuDsVAAIkFXdw4ztEgM+eSk8vJAYP+SFfa0ORUXD\n079P4AUOaKPxvDgdRarywnDkJRNKzZvYObwAoZgauedxhN+MPPmAxLihAoGARno8\nUgLa7mB5iqlYg9BcBA0FcKA6foE6Qe24jUqd2dWQjjM4fcWiO7SN2y5f2Pvo/Jaj\niZVpGp6Oilr/u23TTPRM5mcGuJkuOm+x4PcYGQFee4kfALNTLWa4br4xUZezT0G9\nbPTCyEk17ft89egO2E33WcPWMqfjznlJAEI7aQkCgYEA0RgvhtzUs6S8aQE7i00E\nPWEK8n6IqYiFJCSVRTu0mzaaWj7JnWYgyRayGLlZIJx/06T0bT7Ct/Ix4O6E6XBT\n3tHXMO2Ds5xh4OTT6hHu+g/9KM+f6HyuJqVptAgacyM9P17cjDE42w8jGjOPuUCU\n2yiTOVkrIvH1GRslwJ28WAQ=\n-----END PRIVATE KEY-----\n",
+  "client_email": "yaroslav-brovchenko-ucu-edu-ua@simpletextrecognition-309711.iam.gserviceaccount.com",
+  "client_id": "112204886563117927520",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/yaroslav-brovchenko-ucu-edu-ua%40simpletextrecognition-309711.iam.gserviceaccount.com"
+}
