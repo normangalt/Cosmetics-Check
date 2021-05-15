@@ -44,15 +44,10 @@ def start(message):
 
     Args:
         message ([telebot.types.Message]): [message interface-service].
-    """    
-    try:
-        bot.send_photo(message.chat.id, picture)
-        bot.send_message(message.chat.id, "Hi! I`m a message.chat.idmessage.chat.id bot. \
+    """
+    bot.send_photo(message.chat.id, picture)
+    bot.send_message(message.chat.id, "Hi! I`m a message.chat.idmessage.chat.id bot. \
 I can analyze your cosmetic and give you some advice on it. To start -> send a command: /sendphoto")
-    except:
-        bot.send_message(message.chat.id, "Ooops..! Something went wrong. Please check your internet connection.\
-if the problem will still take place, try again using command /sendphoto.")
-   
 
 #Handle the sending communication-message process.
 @bot.message_handler(commands=['sendphoto'])
