@@ -1,0 +1,16 @@
+Two datasets are used.
+
+Ingredients names restricted by FDA dataset. 
+It includes 1683 items.
+
+Info about indiredients dataset. 
+It includes 3633 items. 
+Each item has the info about its finding with the following marks: 
+    †S - safe in the present practices of use and concentration
+    SQ - safe for use in cosmetics, with qualifications
+    I - the available data are insufficient to support safety
+    Z - the available data are insufficient to support safety, but the
+    ingredient is not used 
+    U - the ingredient is unsafe for use in cosmetics 
+    UNS - ingredients for which the data are insufficient and their use in cosmetics is not supported. 
+And info about the conclusion by the CIR expert panel.
