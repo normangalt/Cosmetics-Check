@@ -150,7 +150,7 @@ This is an example of how to list things you need to use the software and how to
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-See how the bot works in telegram. Go to the @CosmeticsConsistensionBot and make a command /sendphoto
+See how the bot works in telegram. Go to the @CosmeticsConsistensionBot (https://t.me/CosmeticsConsistensionBot) and send a command /sendphoto
 
 ![image](https://user-images.githubusercontent.com/69758108/118395266-0016cd80-b652-11eb-8600-76270312a25d.png) ![image](https://user-images.githubusercontent.com/69758108/118395292-250b4080-b652-11eb-9455-1a9043c2d8c9.png)
 
