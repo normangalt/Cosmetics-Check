@@ -99,5 +99,4 @@ def preprocess(path, row_range, column_range, drop_strings):
     dataframe['name'] = dataframe['name'].apply(modify_name)
 
     #Write the datafram into a file.
-
     dataframe.to_excel(path[:path.rfind('/')]+'_new.xlsx')
