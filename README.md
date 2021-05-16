@@ -196,10 +196,10 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 
 
 
-[contributors-shield]: https://img.shields.io/github/contributors/normangalt/MakeUpCheckUp/repo.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/MakeUpCheckUp/repo.svg?style=for-the-badge
 [contributors-url]: https://github.com/normangalt/MakeUpCheckUp/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/normangalt/MakeUpCheckUp/repo.svg?style=for-the-badge
-[forks-url]: https://github.com/normangalt/MakeUpCheckUp/repo/network/members
+[forks-url]: https://github.com/normangalt/MakeUpCheckUp/network/members
 [stars-shield]: https://img.shields.io/github/stars/normangalt/MakeUpCheckUp/repo.svg?style=for-the-badge
 [stars-url]: https://github.com/normangalt/MakeUpCheckUp/repo/stargazers
 [issues-shield]: https://img.shields.io/github/issues/normangalt/MakeUpCheckUp/repo.svg?style=for-the-badge
