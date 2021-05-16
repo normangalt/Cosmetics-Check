@@ -164,6 +164,8 @@ This is an example of how to list things you need to use the software and how to
 <!-- USAGE EXAMPLES -->
 ## Usage
 
+To get the information about the ingredients of the cosmetic product, the user needs to send the command /sendphoto to the @CosmeticsConsistensionBot, the bot will answer that it is ready to take a photo. Then the user needs to send a photo of the composition of the product. With the google cloud vision, the program recognizes the text from the photo and checks if the are any prohibited ingredients among the components. If yes, the bot notifies the user. Then the bot asks if the user wants to know more about all the ingredients that were found in the composition. If the user clicks no, work with the photo ends. If the user clicks yes, the bot sends a conclusion on the ingredients from the CIR expert panel (https://cir-safety.org/about)and work with the photo is ends.
+
 See how the bot works in telegram. Go to the @CosmeticsConsistensionBot (https://t.me/CosmeticsConsistensionBot) and send a command /sendphoto
 
 ![image](https://user-images.githubusercontent.com/69758108/118395266-0016cd80-b652-11eb-8600-76270312a25d.png) ![image](https://user-images.githubusercontent.com/69758108/118395292-250b4080-b652-11eb-9455-1a9043c2d8c9.png)
