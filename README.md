@@ -61,7 +61,7 @@ firstgenius, PHentosh, S-Daria, Oleksandr, NormanGalt
   <h3 align="center">MakeUpCheckUp</h3>
 
   <p align="center">
-    This project is used to show information about cosmetics and how safe are they. The program creates a telegram bot in which the user sends photo of the composition of ingredients of a cosmetics product. He then receives data about the safety of those ingredients and additional information about it if the user wants.
+    The bot that helps to learn more about the ingredients in the cosmetic products you use.
     <br />
     <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
     <br />
@@ -107,11 +107,10 @@ firstgenius, PHentosh, S-Daria, Oleksandr, NormanGalt
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+This project is designed to show information about cosmetics and how safe they are.
+The program creates a telegram bot. To use it, user need to send the photo of the composition of ingredients of a cosmetics product. Then he/she receives data about the safety of those ingredients and (if one wants) additional information about them.
 
-Here's a blank template to get started:
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`github_username`, `repo_name`, `twitter_handle`, `email`, `project_title`, `project_description`
+To try it, find the  @CosmeticsConsistensionBot yourself.
 
 
 ### Built With
@@ -151,29 +150,15 @@ This is an example of how to list things you need to use the software and how to
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+See how the bot works in telegram. Go to the @CosmeticsConsistensionBot and make a command /sendphoto
 
-_For more examples, please refer to the [Documentation](https://example.com)_
-
+![image](https://user-images.githubusercontent.com/69758108/118395266-0016cd80-b652-11eb-8600-76270312a25d.png) ![image](https://user-images.githubusercontent.com/69758108/118395292-250b4080-b652-11eb-9455-1a9043c2d8c9.png)
 
 
 <!-- ROADMAP -->
 ## Roadmap
 
 See the [open issues](https://github.com/github_username/repo_name/issues) for a list of proposed features (and known issues).
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 
 
@@ -199,8 +184,6 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 * []()
 * []()
 * []()
-
-
 
 
 
