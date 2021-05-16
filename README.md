@@ -193,18 +193,3 @@ We are open to improvements in our project. If you have any ideas or you are rea
 Your Name - [Yaroslav_Brovchenko](https://www.facebook.com/profile.php?id=100007232269167)
 
 Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
-
-
-
-[contributors-shield]: https://img.shields.io/github/contributors/MakeUpCheckUp/repo.svg?style=for-the-badge
-[contributors-url]: https://github.com/normangalt/MakeUpCheckUp/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/normangalt/MakeUpCheckUp/repo.svg?style=for-the-badge
-[forks-url]: https://github.com/normangalt/MakeUpCheckUp/network/members
-[stars-shield]: https://img.shields.io/github/stars/normangalt/MakeUpCheckUp/repo.svg?style=for-the-badge
-[stars-url]: https://github.com/normangalt/MakeUpCheckUp/repo/stargazers
-[issues-shield]: https://img.shields.io/github/issues/normangalt/MakeUpCheckUp/repo.svg?style=for-the-badge
-[issues-url]: https://github.com/normangalt/MakeUpCheckUp/repo/issues
-[license-shield]: https://img.shields.io/github/license/normangalt/MakeUpCheckUp/repo.svg?style=for-the-badge
-[license-url]: https://github.com/normangalt/MakeUpCheckUp/repo/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://www.linkedin.com/in/yaroslav-brovchenko-247477205/
