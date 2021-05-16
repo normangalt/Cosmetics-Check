@@ -188,7 +188,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Feel free to contact
 
-We are open to improvements in our project. If you have any ideas or are ready to help, contact us!
+We are open to improvements in our project. If you have any ideas or you are ready to help, contact us!
 
 Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email
 
