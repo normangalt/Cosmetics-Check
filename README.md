@@ -190,32 +190,21 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 We are open to improvements in our project. If you have any ideas or you are ready to help, contact us!
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email
+Your Name - [Yaroslav_Brovchenko](https://www.facebook.com/profile.php?id=100007232269167)
 
 Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
 
 
 
-<!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
-
-* []()
-* []()
-* []()
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/repo/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/repo/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/normangalt/MakeUpCheckUp/repo.svg?style=for-the-badge
+[contributors-url]: https://github.com/normangalt/MakeUpCheckUp/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/normangalt/MakeUpCheckUp/repo.svg?style=for-the-badge
+[forks-url]: https://github.com/normangalt/MakeUpCheckUp/repo/network/members
+[stars-shield]: https://img.shields.io/github/stars/normangalt/MakeUpCheckUp/repo.svg?style=for-the-badge
+[stars-url]: https://github.com/normangalt/MakeUpCheckUp/repo/stargazers
+[issues-shield]: https://img.shields.io/github/issues/normangalt/MakeUpCheckUp/repo.svg?style=for-the-badge
+[issues-url]: https://github.com/normangalt/MakeUpCheckUp/repo/issues
+[license-shield]: https://img.shields.io/github/license/normangalt/MakeUpCheckUp/repo.svg?style=for-the-badge
+[license-url]: https://github.com/normangalt/MakeUpCheckUp/repo/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/github_username
+[linkedin-url]: https://www.linkedin.com/in/yaroslav-brovchenko-247477205/
