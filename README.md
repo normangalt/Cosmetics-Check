@@ -110,7 +110,11 @@ firstgenius, PHentosh, S-Daria, Oleksandr, NormanGalt
 This project is designed to show information about cosmetics and how safe they are.
 The program creates a telegram bot. To use it, user need to send the photo of the composition of ingredients of a cosmetics product. Then he/she receives data about the safety of those ingredients and (if one wants) additional information about them.
 
-To try it, find the  @CosmeticsConsistensionBot yourself.
+The self-care industry is expanding, there are many self-care products that billions of people use every day. However, there is lack of people who has enough knowledge in the field to understand how each component of the product can effect one's health. Manufacturers can use this defect and use the ingredients that are beneficial to business and not to human health.
+
+Our aim is to make the using of cosmetic products as safe as possible by providing the service with an access to the inforamtion about the ingredients and protect the health of everyone who uses it.
+
+To try it, find the @CosmeticsConsistensionBot in Telegram yourself.
 
 ### Data used
 
@@ -180,7 +184,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 
 <!-- CONTACT -->
-## Contact
+## Feel free to contact
+
+We are open to improvements in our project. If you have any ideas or are ready to help, contact us!
 
 Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email
 
