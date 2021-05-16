@@ -119,6 +119,7 @@ In the project databases from the The Cosmetic Ingredient Review (https://cir-sa
 The Cosmetic Ingredient Review was established in 1976 by the industry trade association (then the Cosmetic, Toiletry, and Fragrance Association, now the Personal Care Products Council), with the support of the U.S. Food and Drug Administration and the Consumer Federation of America. Although funded by the Council, CIR, the Expert Panel for Cosmetic Ingredient Safety, and the review process are independent from the Council and the cosmetics industry. CIR and the Expert Panel for Cosmetic Ingredient Safety operate under a set of procedures.
 
 The prohibited be FDA ingedients are retrieved from the following database: https://www.cir-safety.org/supplementaldoc/prohibited/restricted-fda
+
 The overall information about the ingredients is retrieved from the following database: https://cir-safety.org/sites/default/files/SQ-breakout-092020.pdf
 
 
