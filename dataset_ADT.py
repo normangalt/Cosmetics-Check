@@ -18,8 +18,6 @@ class DataframeDataset:
 
         Args:
             path ([type]): [description]
-            row_range ([type]): [description]
-            column_range ([type]): [description]
 
         Returns:
             [type]: [description]
