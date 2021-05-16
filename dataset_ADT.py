@@ -14,13 +14,13 @@ class DataframeDataset:
 
     def read_data(self, path):
         """
-        Reads the data from a dataset and returns a Pandas 'Dataframe'.
+        Reads the data from a dataset and saves the attribute: Pandas 'Dataframe'.
 
         Args:
             path ([type]): [description]
 
         Returns:
-            [type]: [description]
+            None
         """
         # Read the excel and save in the slot.
         dataframe = pd.read_excel(path)
