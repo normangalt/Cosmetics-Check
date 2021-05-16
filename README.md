@@ -18,14 +18,14 @@
   <p align="center">
     The bot that helps to learn more about the ingredients in the cosmetic products you use.
     <br />
-    <a href="https://github.com/normangalt/Cosmetics-Check/repo_name"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/normangalt/Cosmetics-Check"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/normangalt/Cosmetics-Check/repo_name">View Demo</a>
+    <a href="https://github.com/normangalt/Cosmetics-Check">View Demo</a>
     ·
-    <a href="https://github.com/normangalt/Cosmetics-Check/repo_name/issues">Report Bug</a>
+    <a href="https://github.com/normangalt/Cosmetics-Check/issues">Report Bug</a>
     ·
-    <a href="https://github.com/normangalt/Cosmetics-Check/repo_name/issues">Request Feature</a>
+    <a href="https://github.com/normangalt/Cosmetics-Check/issues">Request Feature</a>
   </p>
 </p>
 
@@ -99,7 +99,7 @@ See how the bot works in telegram. Go to the @CosmeticsConsistensionBot (https:/
 
 ## Roadmap
 
-See the [open issues](https://github.com/normangalt/Cosmetics-Check/repo_name/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/normangalt/Cosmetics-Check/issues) for a list of proposed features (and known issues).
 
 
 
@@ -113,7 +113,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 We are open to improvements in our project. If you have any ideas or you are ready to help, contact us!
 
-Your Name - [Yaroslav_Brovchenko](https://www.facebook.com/profile.php?id=100007232269167)
+Facebook: [Yaroslav_Brovchenko](https://www.facebook.com/profile.php?id=100007232269167)
 
 Project Link: [https://github.com/normangalt/Cosmetics-Check](https://github.com/normangalt/Cosmetics-Check)
 
@@ -126,21 +126,20 @@ Project Link: [https://github.com/normangalt/Cosmetics-Check](https://github.com
 * [S-Daria](https://github.com/S-Daria)
 * [PHentosh](https://github.com/PHentosh)
 * [Oleksandr](https://github.com/SashaRyha)
-firstgenius, PHentosh, S-Daria, Oleksandr, NormanGalt
 
 
 
 
 
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/repo/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/repo/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/normangalt/Cosmetics-Check.svg?style=for-the-badge
+[contributors-url]: https://github.com/normangalt/Cosmetics-Check/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/normangalt/Cosmetics-Check.svg?style=for-the-badge
+[forks-url]: https://github.com/normangalt/Cosmetics-Check/network/members
+[stars-shield]: https://img.shields.io/github/stars/normangalt/Cosmetics-Check.svg?style=for-the-badge
+[stars-url]: https://github.com/normangalt/Cosmetics-Check/stargazers
+[issues-shield]: https://img.shields.io/github/issues/normangalt/Cosmetics-Check.svg?style=for-the-badge
+[issues-url]: https://github.com/normangalt/Cosmetics-Check/issues
+[license-shield]: https://img.shields.io/github/license/normangalt/Cosmetics-Check.svg?style=for-the-badge
+[license-url]: https://github.com/normangalt/Cosmetics-Check/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/github_username
+[linkedin-url]: https://www.linkedin.com/in/yaroslav-brovchenko-247477205/
