@@ -16,3 +16,6 @@ class TestDataSetADT(TestCase):
         self.assertFalse(self.is_in('element15'), 'Failed ingredient is not in database test')
         self.assertFalse(self.is_in('name'), 'Failed ingredient is not in database test')
         self.assertFalse(self.is_in('ELEMENT0'), 'Failed ingredient (caps) is not in database test')
+
+    def test_retrieve(self):
+        pass
