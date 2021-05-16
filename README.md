@@ -105,7 +105,7 @@ See the [open issues](https://github.com/normangalt/Cosmetics-Check/issues) for 
 
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the MIT License. See [LICENCE](https://github.com/normangalt/Cosmetics-Check/blob/master/LICENSE) for more information.
 
 
 
