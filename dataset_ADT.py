@@ -37,7 +37,8 @@ class DataframeDataset:
             ingredient_name ([str]): [ingredient name to find in the dataframe].
 
         Returns:
-            [bool]: [if the given ingredient name is in the dataframe].
+            None: [if the ingredient is not in the dataframe]
+            [DataFrame]: [with the row of ingredient if the ingredient is in the dataframe].
         """
         # Search in the dataframe's names for the ingredient.
         for name in self.dataframe['name'].to_numpy():
@@ -52,9 +53,9 @@ class DataframeDataset:
             ingredient_name ([str]): [ingredient name to find in the dataframe].
 
         Returns:
-            [dict]: [dictionary with values correspondant to a given ingredient name].
+            [pandas.core.series.Series]: [DataFrame series with values correspondant to a given ingredient name].
         """
-        # Retrieve the ingredient from the datafram if it is there.
+        # Retrieve the ingredient from the dataframe if it is there.
         get_ingredient = self.is_in(ingredient_name)
         if get_ingredient is not None:
             return get_ingredient.iloc[0]
