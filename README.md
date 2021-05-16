@@ -31,7 +31,12 @@ firstgenius, PHentosh, S-Daria, Oleksandr, NormanGalt
 *** To avoid retyping too much info. Do a search and replace for the following:
 *** github_username, repo_name, twitter_handle, email, project_title, project_description
 -->
-
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
 
 
@@ -40,7 +45,7 @@ firstgenius, PHentosh, S-Daria, Oleksandr, NormanGalt
 <br />
 <p align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="tg_bot_logo.jpg" alt="Logo" width="120" height="120">
   </a>
 
   <h3 align="center">MakeUpCheckUp</h3>
@@ -48,14 +53,14 @@ firstgenius, PHentosh, S-Daria, Oleksandr, NormanGalt
   <p align="center">
     The bot that helps to learn more about the ingredients in the cosmetic products you use.
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/normangalt/MakeUpCheckUp/repo_name"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    <a href="https://github.com/normangalt/MakeUpCheckUp/repo_name">View Demo</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
+    <a href="https://github.com/normangalt/MakeUpCheckUp/repo_name/issues">Report Bug</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
+    <a href="https://github.com/normangalt/MakeUpCheckUp/repo_name/issues">Request Feature</a>
   </p>
 </p>
 
