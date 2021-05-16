@@ -1,4 +1,4 @@
-MakeUpCheckUp
+
 
 This project is used to show information about cosmetics and how safe are they. The program creates a telegram bot in which the user sends photo of the composition of ingredients of a cosmetics product. He then receives data about the safety of those ingredients and additional information about it if the user wants.
 
@@ -58,10 +58,10 @@ firstgenius, PHentosh, S-Daria, Oleksandr, NormanGalt
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">project_title</h3>
+  <h3 align="center">MakeUpCheckUp</h3>
 
   <p align="center">
-    project_description
+    This project is used to show information about cosmetics and how safe are they. The program creates a telegram bot in which the user sends photo of the composition of ingredients of a cosmetics product. He then receives data about the safety of those ingredients and additional information about it if the user wants.
     <br />
     <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
     <br />
