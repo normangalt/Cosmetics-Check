@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dataset_ADT &#8212; Cosmetics-Check  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for dataset_ADT</h1><div class="highlight"><pre>
+<span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">ADT for datasets storage.</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<div class="viewcode-block" id="DataframeDataset"><a class="viewcode-back" href="../source/dataset_ADT.html#dataset_ADT.DataframeDataset">[docs]</a><span class="k">class</span> <span class="nc">DataframeDataset</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Storage for a dataset in dataframe.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">#Slot for the dataframe.</span>
+    <span class="n">slots</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;dataframe&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="DataframeDataset.read_data"><a class="viewcode-back" href="../source/dataset_ADT.html#dataset_ADT.DataframeDataset.read_data">[docs]</a>    <span class="k">def</span> <span class="nf">read_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reads the data from a dataset and returns a Pandas &#39;Dataframe&#39;.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            path ([type]): [description]</span>
+<span class="sd">            row_range ([type]): [description]</span>
+<span class="sd">            column_range ([type]): [description]</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            [type]: [description]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1">#Read the excel and save in the slot.</span>
+        <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span></div>
+
+<div class="viewcode-block" id="DataframeDataset.is_in"><a class="viewcode-back" href="../source/dataset_ADT.html#dataset_ADT.DataframeDataset.is_in">[docs]</a>    <span class="k">def</span> <span class="nf">is_in</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ingredient</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks if the given ingredient is in the dataframe.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ingredient_name ([str]): [ingredient name to find in the dataframe].</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            [bool]: [if the given ingredient name is in the dataframe].</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1">#Search in the dataframe&#39;s names for the ingredient. </span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">ingredient</span> <span class="ow">in</span> <span class="n">name</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">name</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="DataframeDataset.retrieve"><a class="viewcode-back" href="../source/dataset_ADT.html#dataset_ADT.DataframeDataset.retrieve">[docs]</a>    <span class="k">def</span> <span class="nf">retrieve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ingredient_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieves an entry from the dataframe correspondant to a given ingredient name.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ingredient_name ([str]): [ingredient name to find in the dataframe].</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            [dict]: [dictionary with values correspondant to a given ingredient name].</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1">#Retrieve the ingredient from the datafram if it is there.</span>
+        <span class="n">get_ingredient</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_in</span><span class="p">(</span><span class="n">ingredient_name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">get_ingredient</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">get_ingredient</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div></div>
+
+<div class="viewcode-block" id="preprocess"><a class="viewcode-back" href="../source/dataset_ADT.html#dataset_ADT.preprocess">[docs]</a><span class="k">def</span> <span class="nf">preprocess</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">row_range</span><span class="p">,</span> <span class="n">column_range</span><span class="p">,</span> <span class="n">drop_strings</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Preprocessing of the datasets.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        path ([string]): [path to a dataset].</span>
+<span class="sd">        row_range ([tuple]): [range of rows to retrieve from the dataset].</span>
+<span class="sd">        column_range ([tuple]): [range of columns to retrieve from the dataset].</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">modify_name</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">name</span><span class="o">.</span><span class="n">strip</span><span class="p">()[:</span><span class="n">name</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)]</span>
+
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+    <span class="c1">#Extract the needed columns and rows.</span>
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row_range</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">row_range</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                                    <span class="n">column_range</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">column_range</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+
+    <span class="n">column_labels</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+    <span class="c1">#Construct a mapper fpr the labels.</span>
+    <span class="n">mapper_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">column_labels</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="s1">&#39;name&#39;</span><span class="p">}</span>
+
+    <span class="n">mapper_update</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">lenght</span><span class="p">:</span> <span class="p">{</span><span class="n">column_labels</span><span class="p">[</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]:</span><span class="s1">&#39;property&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lenght</span><span class="p">)}</span>
+    <span class="n">mapper_update</span> <span class="o">=</span> <span class="n">mapper_update</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">column_labels</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span>
+
+    <span class="n">mapper_dict</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">mapper_update</span><span class="p">)</span>
+
+    <span class="c1">#Rename the columns into the normal ones.</span>
+    <span class="n">dataframe</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="n">mapper_dict</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1">#Drop the null values.</span>
+    <span class="n">dataframe</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1">#Drop the invalid and unneeded rows using given identifiers.</span>
+    <span class="k">for</span> <span class="n">drop_string</span> <span class="ow">in</span> <span class="n">drop_strings</span><span class="p">:</span>
+        <span class="n">dataframe</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">drop_string</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+    
+    <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">modify_name</span><span class="p">)</span>
+
+    <span class="c1">#Write the datafram into a file.</span>
+    <span class="n">dataframe</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">path</span><span class="p">[:</span><span class="n">path</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)]</span><span class="o">+</span><span class="s1">&#39;_new.xlsx&#39;</span><span class="p">)</span></div>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;main&#39;</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Cosmetics-Check</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, normangalt, firstgenius, S-Daria, Oleksandr, PHentosh.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

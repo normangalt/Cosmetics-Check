@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vision_api &#8212; Cosmetics-Check  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for vision_api</h1><div class="highlight"><pre>
+<span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Google Cloud Vision API processing.</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">google.cloud</span> <span class="kn">import</span> <span class="n">vision</span>
+
+<div class="viewcode-block" id="Knot"><a class="viewcode-back" href="../source/vision_api.html#vision_api.Knot">[docs]</a><span class="k">class</span> <span class="nc">Knot</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Lightweight, nonpublic</span>
+<span class="sd">class for storing a singly linked node.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="s2">&quot;_element&quot;</span><span class="p">,</span> <span class="s2">&quot;_next&quot;</span>     
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="nb">next</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>  
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Inititialization of an instance of the object.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            element ([object], optional): [value to store in the &#39;Knot&#39;]. Defaults to None.</span>
+<span class="sd">            next ([object], optional): [object linked next to the one]. Defaults to None.</span>
+<span class="sd">        &quot;&quot;&quot;</span>        
+        <span class="bp">self</span><span class="o">.</span><span class="n">_element</span> <span class="o">=</span> <span class="n">element</span>         
+        <span class="bp">self</span><span class="o">.</span><span class="n">_next</span> <span class="o">=</span> <span class="nb">next</span>     
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">element</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        element property for &#39;_element&#39; storage.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            [object]: [the element stored in the _element property].</span>
+<span class="sd">        &quot;&quot;&quot;</span>        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_element</span>
+    
+    <span class="nd">@element</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Setter function for element property.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value ([object]): [object to set as a value of the _element property].</span>
+<span class="sd">        &quot;&quot;&quot;</span>        
+        <span class="bp">self</span><span class="o">.</span><span class="n">_element</span> <span class="o">=</span> <span class="n">value</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        next property for &#39;_next&#39; storage. </span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            [object]: [the element stored in the _next property].</span>
+<span class="sd">        &quot;&quot;&quot;</span>        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next</span>
+    
+    <span class="nd">@next</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Setter function for element property.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value ([object]): [object to set as a value of the _next property].</span>
+<span class="sd">        &quot;&quot;&quot;</span>        
+        <span class="bp">self</span><span class="o">.</span><span class="n">_next</span> <span class="o">=</span> <span class="n">value</span></div>
+
+<div class="viewcode-block" id="Cream"><a class="viewcode-back" href="../source/vision_api.html#vision_api.Cream">[docs]</a><span class="k">class</span> <span class="nc">Cream</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Cream ADT</span>
+<span class="sd">    &quot;&quot;&quot;</span>    
+<div class="viewcode-block" id="Cream.check_ingredients"><a class="viewcode-back" href="../source/vision_api.html#vision_api.Cream.check_ingredients">[docs]</a>    <span class="k">def</span> <span class="nf">check_ingredients</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">photo</span><span class="p">,</span> <span class="n">dataset</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check the ingredients.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            photo ([type]): [description]</span>
+<span class="sd">            dataset ([type]): [description]</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            [type]: [description]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ingredients_words</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_ingredients</span><span class="p">(</span><span class="n">photo</span><span class="p">)</span>
+        <span class="n">ingredients</span> <span class="o">=</span> <span class="n">Knot</span><span class="p">()</span>
+        <span class="n">ingredients_list_head</span> <span class="o">=</span> <span class="n">ingredients</span>
+        <span class="k">for</span> <span class="n">ingredient</span> <span class="ow">in</span> <span class="n">ingredients_words</span><span class="p">:</span>
+            <span class="n">ingredients</span><span class="o">.</span><span class="n">element</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">ingredient</span><span class="p">)</span>
+            <span class="n">ingredients</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">Knot</span><span class="p">()</span>
+            <span class="n">ingredients</span> <span class="o">=</span> <span class="n">ingredients</span><span class="o">.</span><span class="n">next</span>
+
+        <span class="k">return</span> <span class="n">ingredients_list_head</span></div>
+
+<div class="viewcode-block" id="Cream.find_ingredients"><a class="viewcode-back" href="../source/vision_api.html#vision_api.Cream.find_ingredients">[docs]</a>    <span class="k">def</span> <span class="nf">find_ingredients</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Finds ingredients on a photo.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            path ([str]): [path to a photo].</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            [list]: [list of words found on the photo].</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">detected_text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">detect_text</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">detected_text_words</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_text</span><span class="p">(</span><span class="n">detected_text</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">detected_text_words</span></div>
+
+<div class="viewcode-block" id="Cream.detect_text"><a class="viewcode-back" href="../source/vision_api.html#vision_api.Cream.detect_text">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">detect_text</span><span class="p">(</span><span class="n">photo</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Detects and returns text on a photo.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            photo ([str]): [photo in 64bit encoded string].</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            Exception: [Exception]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;GOOGLE_APPLICATION_CREDENTIALS&#39;</span><span class="p">]</span><span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;simpletextrecognition.json&#39;</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">vision</span><span class="o">.</span><span class="n">ImageAnnotatorClient</span><span class="p">()</span>
+
+        <span class="n">image</span> <span class="o">=</span> <span class="n">vision</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="n">photo</span><span class="p">)</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">text_detection</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">image</span><span class="p">)</span>
+
+        <span class="n">detected_text</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">text_annotations</span>
+
+        <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">message</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+                <span class="s1">&#39;</span><span class="si">{}</span><span class="se">\n</span><span class="s1">Ooops! Some error occured! Sorry for the troubles.</span><span class="se">\</span>
+<span class="s1">Try making a different image, if nothing changes please try again later.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">detected_text</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">message</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">detected_text</span></div>
+
+<div class="viewcode-block" id="Cream.process_text"><a class="viewcode-back" href="../source/vision_api.html#vision_api.Cream.process_text">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">process_text</span><span class="p">(</span><span class="n">detected_text</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Processes texts found on a photo and returns words.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            detected_text ([type]): [description]</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            [list]: [list of words found on the photo].</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">detected_text_strign</span> <span class="o">=</span> <span class="n">detected_text</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">description</span>
+
+        <span class="n">detected_text_words</span> <span class="o">=</span> <span class="n">detected_text_strign</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+
+        <span class="n">detected_text_words</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">detected_text_words</span><span class="p">]</span>
+
+        <span class="n">detected_text_words</span> <span class="o">=</span> <span class="p">[</span><span class="n">el</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">detected_text_words</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">word</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)]</span>
+
+        <span class="k">return</span> <span class="n">detected_text_words</span></div></div>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;main&#39;</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Cosmetics-Check</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, normangalt, firstgenius, S-Daria, Oleksandr, PHentosh.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

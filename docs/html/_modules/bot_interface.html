@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bot_interface &#8212; Cosmetics-Check  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for bot_interface</h1><div class="highlight"><pre>
+<span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Telegram Bot Interface.</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="c1">#Import the needed libraries</span>
+<span class="kn">import</span> <span class="nn">telebot</span>
+<span class="kn">from</span> <span class="nn">telebot</span> <span class="kn">import</span> <span class="n">types</span>
+<span class="kn">from</span> <span class="nn">vision_api</span> <span class="kn">import</span> <span class="n">Cream</span>
+<span class="kn">from</span> <span class="nn">dataset_ADT</span> <span class="kn">import</span> <span class="n">DataframeDataset</span>
+
+<span class="c1">#Enter API_KEY from file &#39;Keys&#39;</span>
+<span class="n">ingredients</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">API_KEY</span> <span class="o">=</span> <span class="s1">&#39;1886309037:AAE0jcZvgf1fuXJbokWmnyT40HFUElBzfzw&#39;</span>
+
+<span class="c1">#Create and activate bot-service instance.</span>
+<span class="n">bot</span> <span class="o">=</span> <span class="n">telebot</span><span class="o">.</span><span class="n">TeleBot</span><span class="p">(</span><span class="n">API_KEY</span><span class="p">)</span>
+
+<span class="c1">#Markups for the interface.</span>
+<span class="n">markup_for_yes_no</span> <span class="o">=</span> <span class="n">types</span><span class="o">.</span><span class="n">InlineKeyboardMarkup</span><span class="p">()</span>
+
+<span class="n">item_yes</span> <span class="o">=</span> <span class="n">types</span><span class="o">.</span><span class="n">InlineKeyboardButton</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;YES&#39;</span><span class="p">,</span> <span class="n">callback_data</span><span class="o">=</span><span class="s1">&#39;yes&#39;</span><span class="p">)</span>
+<span class="n">item_no</span> <span class="o">=</span> <span class="n">types</span><span class="o">.</span><span class="n">InlineKeyboardButton</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;NO&#39;</span><span class="p">,</span> <span class="n">callback_data</span><span class="o">=</span><span class="s1">&#39;no&#39;</span><span class="p">)</span>
+
+<span class="n">markup_for_yes_no</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">item_yes</span><span class="p">,</span> <span class="n">item_no</span><span class="p">)</span>
+
+<span class="c1">#Create a &#39;Cream&#39; ADT-service instance.</span>
+<span class="n">cream_procesor</span> <span class="o">=</span> <span class="n">Cream</span><span class="p">()</span>
+
+<span class="c1">#Create storage-service ADTs for the datasets.</span>
+<span class="n">forbidden_dataset</span> <span class="o">=</span> <span class="n">DataframeDataset</span><span class="p">()</span>
+<span class="n">description_dataset</span> <span class="o">=</span> <span class="n">DataframeDataset</span><span class="p">()</span>
+
+<span class="c1">#Store the datasets.</span>
+<span class="n">forbidden_dataset</span><span class="o">.</span><span class="n">read_data</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;C:\Users\romak\OneDrive\Зображення\Документи\GitHub\MakeUpCheckUp\Cosmetics-Check\Datasets\dataset_forbidden.xlsx&#39;</span><span class="p">)</span>
+<span class="n">description_dataset</span><span class="o">.</span><span class="n">read_data</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;C:\Users\romak\OneDrive\Зображення\Документи\GitHub\MakeUpCheckUp\Cosmetics-Check\Datasets\dataset_ingredients.xlsx&#39;</span><span class="p">)</span>
+
+<span class="c1">#Handle the initial message.</span>
+<div class="viewcode-block" id="start"><a class="viewcode-back" href="../source/bot_interface.html#bot_interface.start">[docs]</a><span class="nd">@bot</span><span class="o">.</span><span class="n">message_handler</span><span class="p">(</span><span class="n">commands</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Start the dialog with the bot.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        message ([telebot.types.Message]): [message interface-service].</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">bot</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s2">&quot;Hi! I`m a Cosmetics Consistentsion Bot. </span><span class="se">\</span>
+<span class="s2">I can analyze your cosmetic and give you some advice on it.  &quot;</span><span class="p">)</span>
+    <span class="n">bot</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s1">&#39;To use the following service take next actions:</span><span class="se">\n\</span>
+<span class="s1">----------------------------------------------------------</span><span class="se">\n\</span>
+<span class="s1">- enter the a command </span><span class="se">\&#39;</span><span class="s1">/sendphoto</span><span class="se">\&#39;</span><span class="s1"> to start the program;</span><span class="se">\n\</span>
+<span class="s1">----------------------------------------------------------</span><span class="se">\n\</span>
+<span class="s1">- take a picture of the back of the product with wits decription and chemical composition list;</span><span class="se">\n\</span>
+<span class="s1">----------------------------------------------------------</span><span class="se">\n\</span>
+<span class="s1">- send it in chat after the message request from the bot;</span><span class="se">\n\</span>
+<span class="s1">----------------------------------------------------------</span><span class="se">\n\</span>
+<span class="s1">- you</span><span class="se">\&#39;</span><span class="s1">ll get a response with results of the analysis on the forbidden ingredients;</span><span class="se">\n\</span>
+<span class="s1">and an </span><span class="se">\&#39;</span><span class="s1">yes</span><span class="se">\&#39;</span><span class="s1">-</span><span class="se">\&#39;</span><span class="s1">no</span><span class="se">\&#39;</span><span class="s1"> request: whether you want to get more info on the products composition;</span><span class="se">\n\</span>
+<span class="s1">----------------------------------------------------------</span><span class="se">\n\</span>
+<span class="s1">- choose desirable option and wait a second for an answer;</span><span class="se">\n\</span>
+<span class="s1">        _______________________________________________&#39;</span><span class="p">)</span>
+    <span class="n">bot</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s1">&#39;To start -&gt; send a command: /sendphoto&quot;&#39;</span><span class="p">)</span></div>
+
+<span class="c1">#Handle the sending communication-message process.</span>
+<div class="viewcode-block" id="add_photo"><a class="viewcode-back" href="../source/bot_interface.html#bot_interface.add_photo">[docs]</a><span class="nd">@bot</span><span class="o">.</span><span class="n">message_handler</span><span class="p">(</span><span class="n">commands</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sendphoto&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">add_photo</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Receives a photo from the user.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        message ([telebot.types.Message]): [message with user&#39;s photo].</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">bot</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s1">&#39;Please send a photo of your cosmetic ingredients.&#39;</span><span class="p">)</span>
+
+    <span class="c1">#Activate the handler of the new messages.</span>
+    <span class="n">bot</span><span class="o">.</span><span class="n">register_next_step_handler</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">photo</span><span class="p">)</span></div>
+
+<span class="c1">#Handler for the answering-dialog interface.</span>
+<div class="viewcode-block" id="answer"><a class="viewcode-back" href="../source/bot_interface.html#bot_interface.answer">[docs]</a><span class="nd">@bot</span><span class="o">.</span><span class="n">callback_query_handler</span><span class="p">(</span><span class="n">func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">call</span><span class="p">:</span> <span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">answer</span><span class="p">(</span><span class="n">call</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Programs the &#39;Yes&#39;-&#39;No&#39; answer interface.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        call ([telebot.types.Message]): [call-answer from the user].</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">#Access global ingredients storage-variable.</span>
+    <span class="k">global</span> <span class="n">ingredients</span>
+
+    <span class="c1">#&#39;Yes&#39; condition.</span>
+    <span class="n">present_hazards</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">call</span><span class="o">.</span><span class="n">data</span> <span class="o">==</span> <span class="s1">&#39;yes&#39;</span><span class="p">:</span>
+        <span class="c1">#Delete the message to clean the chat.</span>
+        <span class="n">bot</span><span class="o">.</span><span class="n">delete_message</span><span class="p">(</span><span class="n">call</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">call</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">message_id</span><span class="p">)</span>
+
+        <span class="n">bot</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">call</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n\</span>
+<span class="s2">Each item has the info about its finding with the following marks: </span><span class="se">\n\</span>
+<span class="s2">    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="se">\n\</span>
+<span class="s2">    †S - safe in the present practices of use and concentration. </span><span class="se">\</span>
+<span class="s2">You can use the product freely following its recommended terms of usage and instructions. </span><span class="se">\</span>
+<span class="s2">Its always important to know what is in the product you use.</span><span class="se">\n\</span>
+<span class="s2">    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </span><span class="se">\n\</span>
+<span class="s2">    SQ - safe for use in cosmetics, with qualifications. </span><span class="se">\</span>
+<span class="s2">The product is safe for your use, but its important to make sure</span><span class="se">\</span>
+<span class="s2">the distributor and seller are licensed in its usage and are trustworthy.</span><span class="se">\n\</span>
+<span class="s2">    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </span><span class="se">\n\</span>
+<span class="s2">    I - the available data are insufficient to support safety.</span><span class="se">\</span>
+<span class="s2">    We dont recommend using the product. </span><span class="se">\</span>
+<span class="s2">Some of its ingredients are not explored enough to be sure in its safety.</span><span class="se">\n\</span>
+<span class="s2">    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </span><span class="se">\n\</span>
+<span class="s2">    Z - the available data are insufficient to support safety,</span><span class="se">\</span>
+<span class="s2">    but the ingredient is not used. We can&#39;t guarantee your safety, </span><span class="se">\</span>
+<span class="s2">but no dangerous substances were found in the product.</span><span class="se">\n\</span>
+<span class="s2">    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </span><span class="se">\n\</span>
+<span class="s2">    U - the ingredient is unsafe for use in cosmetics. </span><span class="se">\</span>
+<span class="s2">        DANGEROUS INGREDIENTS WERE OSTENDED. </span><span class="se">\</span>
+<span class="s2">    WE RECOMMEND YOU GETTING RID OF IT IMMEDIATELY </span><span class="se">\</span>
+<span class="s2">        AND MAKING SURE NO OF YOUR FIRENDS </span><span class="se">\</span>
+<span class="s2">    AND RELATIVES USE IT. HEALTH IS ABOVE ALL ELSE.</span><span class="se">\n\</span>
+<span class="s2">    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </span><span class="se">\n\</span>
+<span class="s2">    UNS - ingredients for which the data are insufficient and their use in cosmetics is not supported. </span><span class="se">\</span>
+<span class="s2">We found some ingredients with little available information about them, but their usage in cosmetics is </span><span class="se">\</span>
+<span class="s2">                                    questionable and may harm you.</span><span class="se">\n\</span>
+<span class="s2">    __________________________________________________________________</span><span class="se">\</span>
+<span class="s2">&quot;</span><span class="p">)</span>
+        <span class="c1">#Loop over the linked-list with ingredients.</span>
+        <span class="n">head</span> <span class="o">=</span> <span class="n">ingredients</span><span class="o">.</span><span class="n">next</span>
+        <span class="k">while</span> <span class="n">head</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ingredient</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="n">element</span>
+
+            <span class="c1">#If the ingredient has been found send the info about and send the reply.</span>
+            <span class="k">if</span> <span class="n">ingredient</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">present_hazards</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="n">diplay_ingredient</span> <span class="o">=</span> <span class="n">decorate_ingredient_display</span><span class="p">(</span><span class="n">ingredient</span><span class="p">)</span>
+                <span class="n">bot</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">call</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">diplay_ingredient</span><span class="p">)</span>
+
+            <span class="n">head</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="n">next</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">present_hazards</span><span class="p">:</span>
+            <span class="n">bot</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">call</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s1">&#39;We weren</span><span class="se">\&#39;</span><span class="s1">t able to find more info about the ingredients in your products.&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">)</span>
+
+    <span class="n">bot</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">call</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s1">&#39;Thanks for using our service! To upload new photo -&gt; /sendphoto</span><span class="se">\n</span><span class="s1">SEE YOU LATER❤️&#39;</span><span class="p">)</span>
+    <span class="n">bot</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">call</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s1">&#39;If you want to leave some feedback, you noticed any bugs or have and idea for new features,</span><span class="se">\</span>
+<span class="s1">please use the following link: https://forms.gle/bwoNuAqtxBA2u1Nc6.&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="cut_spaces"><a class="viewcode-back" href="../source/bot_interface.html#bot_interface.cut_spaces">[docs]</a><span class="k">def</span> <span class="nf">cut_spaces</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Cleans the given string of the redundant spaces.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        string ([str]): [a string to clean].</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        [str]: [a cleaned of the redundant spaces string].</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="n">string</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">string</span></div>
+
+<div class="viewcode-block" id="decorate_ingredient_display"><a class="viewcode-back" href="../source/bot_interface.html#bot_interface.decorate_ingredient_display">[docs]</a><span class="k">def</span> <span class="nf">decorate_ingredient_display</span><span class="p">(</span><span class="n">ingredient</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Decorator for the messages.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        ingredient ([dictionary]): [a dictionary describing an ingredient].</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        [string]: [a decorated string representing the ingredient].</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">#Retrieve the data abotu the ingredient.</span>
+    <span class="n">ingredient_name</span> <span class="o">=</span> <span class="n">ingredient</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+    <span class="n">ingredient_assesment</span> <span class="o">=</span> <span class="n">ingredient</span><span class="p">[</span><span class="s1">&#39;property0&#39;</span><span class="p">]</span>
+    <span class="n">ingredient_conclusion</span> <span class="o">=</span> <span class="n">cut_spaces</span><span class="p">(</span><span class="n">ingredient</span><span class="p">[</span><span class="s1">&#39;property1&#39;</span><span class="p">])</span>
+
+    <span class="c1">#Create segments of the decorated string.</span>
+    <span class="n">ingredient_name_prefix</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Detected ingredient: </span><span class="si">{</span><span class="n">ingredient_name</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="n">safety_assesment_afix</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Researches assesed with finding: </span><span class="si">{</span><span class="n">ingredient_assesment</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="n">scientific_conclusion_sufix</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Researche</span><span class="se">\&#39;</span><span class="s1">s conclusion: </span><span class="si">{</span><span class="n">ingredient_conclusion</span><span class="si">}</span><span class="s1">&#39;</span>
+
+    <span class="c1">#Helping string-decorators.</span>
+    <span class="n">beaty_japix</span> <span class="o">=</span> <span class="s1">&#39;__________________________________________&#39;</span>
+    <span class="n">beaty_gaxix</span> <span class="o">=</span> <span class="s1">&#39;------------------------------------------&#39;</span>
+
+    <span class="c1">#The final string.</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="si">{</span><span class="n">beaty_japix</span><span class="si">}{</span><span class="n">ingredient_name_prefix</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">beaty_gaxix</span><span class="si">}</span><span class="se">\n\</span>
+<span class="si">{</span><span class="n">safety_assesment_afix</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">beaty_gaxix</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">scientific_conclusion_sufix</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">beaty_japix</span><span class="si">}</span><span class="s1">&#39;</span>
+
+    <span class="k">return</span> <span class="n">text</span></div>
+
+<div class="viewcode-block" id="photo"><a class="viewcode-back" href="../source/bot_interface.html#bot_interface.photo">[docs]</a><span class="k">def</span> <span class="nf">photo</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Receive a photo from a user.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        message ([telebot.types.Message]): [message with a photo].</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">#Access global ingredients storage-variable.</span>
+    <span class="k">global</span> <span class="n">ingredients</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+        <span class="c1">#Retrieve the info abotu the file.</span>
+        <span class="n">file_info</span> <span class="o">=</span> <span class="n">bot</span><span class="o">.</span><span class="n">get_file</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">photo</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">photo</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">file_id</span><span class="p">)</span>
+
+        <span class="c1">#Reetrive the file receive from the user.</span>
+        <span class="n">photo_file</span> <span class="o">=</span> <span class="n">bot</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="n">file_info</span><span class="o">.</span><span class="n">file_path</span><span class="p">)</span>
+
+        <span class="n">bot</span><span class="o">.</span><span class="n">reply_to</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="s2">&quot;Photo is being processed&quot;</span><span class="p">)</span>
+
+        <span class="c1">#Retrive the info on the ingredients on the photo from the ingredients dataset.</span>
+        <span class="n">ingredients</span> <span class="o">=</span> <span class="n">cream_procesor</span><span class="o">.</span><span class="n">check_ingredients</span><span class="p">(</span><span class="n">photo_file</span><span class="p">,</span> <span class="n">description_dataset</span><span class="p">)</span>
+
+        <span class="c1">##Retrive the info on the ingredients on the photo from the dataset of prohibitions.</span>
+        <span class="n">forbiden_ingredients</span> <span class="o">=</span> <span class="n">cream_procesor</span><span class="o">.</span><span class="n">check_ingredients</span><span class="p">(</span><span class="n">photo_file</span><span class="p">,</span> <span class="n">forbidden_dataset</span><span class="p">)</span>
+
+        <span class="n">head</span> <span class="o">=</span> <span class="n">forbiden_ingredients</span><span class="o">.</span><span class="n">next</span>
+
+        <span class="c1">#Loop over the linked-list with ingredients.</span>
+        <span class="k">while</span> <span class="n">head</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">forbiden_ingredient</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="n">element</span>
+            <span class="k">if</span> <span class="n">forbiden_ingredient</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+                <span class="n">text</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">forbiden_ingredient</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> \
+                <span class="s1">&#39;---------------------------------&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+
+            <span class="n">head</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="n">next</span>
+
+        <span class="k">if</span> <span class="n">text</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+            <span class="n">bot</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s1">&#39;There is no prohibited(dangerous) ingredients in this product&#39;</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;---------------------------------</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">text</span>
+            <span class="n">bot</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s1">&#39;There are such prohibited(dangerous) ingredients in this product:</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">text</span><span class="p">)</span>
+
+        <span class="n">bot</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s2">&quot;Do you want to get more info about ingredients?&quot;</span><span class="p">,</span>
+            <span class="n">reply_markup</span><span class="o">=</span><span class="n">markup_for_yes_no</span>
+        <span class="p">)</span>
+
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">bot</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s2">&quot;Invalid photo. To try again - send /sendphoto&quot;</span><span class="p">)</span></div>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">bot</span><span class="o">.</span><span class="n">polling</span><span class="p">()</span>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Cosmetics-Check</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, normangalt, firstgenius, S-Daria, Oleksandr, PHentosh.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>bot_interface module &#8212; Cosmetics-Check  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-bot_interface">
+<span id="bot-interface-module"></span><h1>bot_interface module<a class="headerlink" href="#module-bot_interface" title="Permalink to this headline">¶</a></h1>
+<p>Telegram Bot Interface.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="bot_interface.add_photo">
+<span class="sig-prename descclassname"><span class="pre">bot_interface.</span></span><span class="sig-name descname"><span class="pre">add_photo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bot_interface.html#add_photo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bot_interface.add_photo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receives a photo from the user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>message</strong> (<em>[</em><em>telebot.types.Message</em><em>]</em>) – [message with user’s photo].</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bot_interface.answer">
+<span class="sig-prename descclassname"><span class="pre">bot_interface.</span></span><span class="sig-name descname"><span class="pre">answer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">call</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bot_interface.html#answer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bot_interface.answer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Programs the ‘Yes’-‘No’ answer interface.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>call</strong> (<em>[</em><em>telebot.types.Message</em><em>]</em>) – [call-answer from the user].</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bot_interface.cut_spaces">
+<span class="sig-prename descclassname"><span class="pre">bot_interface.</span></span><span class="sig-name descname"><span class="pre">cut_spaces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bot_interface.html#cut_spaces"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bot_interface.cut_spaces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cleans the given string of the redundant spaces.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>string</strong> (<em>[</em><em>str</em><em>]</em>) – [a string to clean].</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>[a cleaned of the redundant spaces string].</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bot_interface.decorate_ingredient_display">
+<span class="sig-prename descclassname"><span class="pre">bot_interface.</span></span><span class="sig-name descname"><span class="pre">decorate_ingredient_display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ingredient</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bot_interface.html#decorate_ingredient_display"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bot_interface.decorate_ingredient_display" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decorator for the messages.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ingredient</strong> (<em>[</em><em>dictionary</em><em>]</em>) – [a dictionary describing an ingredient].</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>[a decorated string representing the ingredient].</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>[string]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bot_interface.photo">
+<span class="sig-prename descclassname"><span class="pre">bot_interface.</span></span><span class="sig-name descname"><span class="pre">photo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bot_interface.html#photo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bot_interface.photo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receive a photo from a user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>message</strong> (<em>[</em><em>telebot.types.Message</em><em>]</em>) – [message with a photo].</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bot_interface.start">
+<span class="sig-prename descclassname"><span class="pre">bot_interface.</span></span><span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bot_interface.html#start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bot_interface.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the dialog with the bot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>message</strong> (<em>[</em><em>telebot.types.Message</em><em>]</em>) – [message interface-service].</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Cosmetics-Check</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, normangalt, firstgenius, S-Daria, Oleksandr, PHentosh.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/source/bot_interface.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -10,6 +10,10 @@ Welcome to Cosmetics-Check's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   ../bot_interface
+   ../dataset_ADT 
+   ../visio_api
+
 Indices and tables
 ==================
 
