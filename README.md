@@ -10,7 +10,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/normangalt/Cosmetics-Check/repo_name">
-    <img src="tg_bot_logo.jpg" alt="Logo" width="120" height="120">
+    <img src="https://github.com/normangalt/Cosmetics-Check/blob/368561962aba8a40d3a817a5e078c7c72a059035/logo/tg_bot_logo.jpg" alt="Logo" width="120" height="120">
   </a>
 
   <h3 align="center">MakeUpCheckUp</h3>
