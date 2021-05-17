@@ -5,8 +5,8 @@ Telegram Bot Interface.
 #Import the needed libraries
 import telebot
 from telebot import types
-from vision_api import Cream
-from dataset_ADT import DataframeDataset
+from ADTs.vision_api import Cream
+from ADTs.dataset_ADT import DataframeDataset
 
 #Enter API_KEY from file 'Keys'
 ingredients = None
